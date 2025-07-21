@@ -71,7 +71,7 @@ pub mod helpers {
         Some(format!("{icon} {charge}%"))
     }
 
-    fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
+    pub fn read_sys_file(bat: &str, fname: &str) -> Option<String> {
         fs::read_to_string(format!("/sys/class/power_supply/{bat}/{fname}"))
             .ok()
             .map(|s| s.trim().to_string())
